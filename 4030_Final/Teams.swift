@@ -65,7 +65,7 @@ struct Teams: View {
 }
     
 //Array of english, german and italian clubs
-let teamNames = [["arsenal", "aston-villa", "brentford", "brighton", "burnley", "chelsea", "crystal-palace", "everton", "leeds-united", "leicester-city", "liverpool", "manchester-city", "manchester-united", "newcastle-united", "norwich-city", "southampton", "tottenham-hotspur", "watford", "west-ham-united", "wolves"], ["augsburg", "bayern", "bremen", "dortmund", "dusseldorf", "frankfurt", "freiburg", "furth", "hamburg", "hannover", "hertha-bsc-berlin", "hoffenheim", "leverkusen", "mainz", "moenchengladbach", "nuremburg", "redbull-leipzig", "schalke" , "stuttgart", "würzburg"],["ac-milan", "atalanta", "bologna", "cagliari", "empoli", "fiorentina", "genoa", "hellas-verona", "inter", "juventus", "lazio", "napoli", "roma", "salernitana", "sampdoria", "sassuolo", "spezia", "torino", "udinese", "venezia"]]
+let teamNames = [["arsenal", "aston-villa", "brentford", "brighton", "burnley", "chelsea", "crystal-palace", "everton", "leeds-united", "leicester-city", "liverpool", "manchester-city", "manchester-united", "newcastle-united", "norwich-city", "southampton", "tottenham-hotspur", "watford", "west-ham-united", "wolves"], ["augsburg", "bayern", "bremen", "dortmund", "dusseldorf", "frankfurt", "freiburg", "furth", "hamburg", "hannover", "hertha-bsc-berlin", "hoffenheim", "leverkusen", "mainz", "moenchengladbach", "nuremburg", "redbull-leipzig", "schalke" , "stuttgart", "wolfsburg"],["ac-milan", "atalanta", "bologna", "cagliari", "empoli", "fiorentina", "genoa", "hellas-verona", "inter", "juventus", "lazio", "napoli", "roma", "salernitana", "sampdoria", "sassuolo", "spezia", "torino", "udinese", "venezia"]]
 
 #Preview {
     Teams()

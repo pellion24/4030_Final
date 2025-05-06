@@ -20,6 +20,7 @@ struct Locations: View {
             Text("MAJOR LEAGUE SOCCER")
                 .fontWeight(.bold)
                 .font(.title)
+                .foregroundStyle(Color("MLS_BLUE")) //custom color from MLS palette
                 .multilineTextAlignment(.center)
             Image("MLS")
                 .resizable()

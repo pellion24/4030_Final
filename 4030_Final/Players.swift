@@ -11,47 +11,83 @@ struct Players: View {
     @State private var selectionMade = false
     @State private var selectedPosition: String?
     @State private var select = 0
+    @State private var firstLineVisible = false
+    @State private var secondLineVisible = false
+    @State private var tapCount = 0
+    @State private var reveal = false
     
     
     var body: some View {
         
         if selectionMade == false {
-            Text("Let's find your favorite player...")
-                .padding()
-            Text("Select your position on the pitch...")
-                .padding()
-            Grid {
-                //setting up the selection menu
-                GridRow{
-                    Button(action: {
-                        selectionMade = true
-                        selectedPosition = "Goalkeeper"
-                    }) {
-                        Text("Goalkeeper")
+            
+            VStack {
+                if !selectionMade {
+                    VStack(alignment: .leading) { // Align text to the left for better visual flow
+                        if firstLineVisible {
+                            Text("Let's find your favorite player...")
+                        }
+                        if secondLineVisible {
+                            Text("Select your position on the pitch...")
+                            
+                        }
+                        if !firstLineVisible || !secondLineVisible {
+                            Text("Tap to reveal the next step...")
+                                .foregroundStyle(.gray)
+                                .padding()
+                        }
                     }
-                    Button(action: {
-                        selectionMade = true
-                        selectedPosition = "Defender"
-                        select = 1
-                    }) {
-                        Text("Defender")
-                        
+                    .onTapGesture {
+                        tapCount += 1
+                        if tapCount == 1 {
+                            firstLineVisible = true
+                        } else if tapCount == 2 {
+                            secondLineVisible = true
+                            reveal = true
+                            // Optionally, you could set selectionMade to true here if this is the final step
+                            // selectionMade = true
+                        }
                     }
+                } else {
+                    Text("Selection was made!")
                 }
-                GridRow{
-                    Button(action: {
-                        selectionMade = true
-                        selectedPosition = "Midfielder"
-                        select = 2
-                    }) {
-                        Text("Midfielder")
+            }
+            .padding()
+            
+            if reveal == true {
+                Grid {
+                    //setting up the selection menu
+                    GridRow{
+                        Button(action: {
+                            selectionMade = true
+                            selectedPosition = "Goalkeeper"
+                        }) {
+                            Text("Goalkeeper")
+                        }
+                        Button(action: {
+                            selectionMade = true
+                            selectedPosition = "Defender"
+                            select = 1
+                        }) {
+                            Text("Defender")
+                            
+                        }
                     }
-                    Button(action: {
-                        selectionMade = true
-                        selectedPosition = "Forward"
-                        select = 3
-                    }) {
-                        Text("Forward")
+                    GridRow{
+                        Button(action: {
+                            selectionMade = true
+                            selectedPosition = "Midfielder"
+                            select = 2
+                        }) {
+                            Text("Midfielder")
+                        }
+                        Button(action: {
+                            selectionMade = true
+                            selectedPosition = "Forward"
+                            select = 3
+                        }) {
+                            Text("Forward")
+                        }
                     }
                 }
             }
