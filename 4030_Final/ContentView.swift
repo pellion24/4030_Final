@@ -7,18 +7,41 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
+    @State private var showMenu = false
+    
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            ZStack {
+                VStack {
+                    Text("Welcome to FootyJunkie")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.leading)
+                        .padding()
+                    Image(systemName: "soccerball")
+                        .imageScale(.large)
+                }
+                
+                
+                SideMenu(isShowing: $showMenu)
+            }
+            
+            .navigationTitle(Text("FootyJunkie"))
+            .toolbar {
+                ToolbarItem(placement: .automatic) {
+                    Button(action:{ showMenu.toggle()
+                    }, label: { Image(systemName: "line.3.horizontal")
+                    })
+                }
+            }
         }
-        .padding()
+        
     }
 }
-
 #Preview {
     ContentView()
 }

@@ -9,7 +9,13 @@ import SwiftUI
 
 struct SideMenuHeader: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack{
+            Image(systemName: "soccerball")
+                .imageScale(.large)
+            VStack{
+                Text("FootyJunkie")
+            }
+        }
     }
 }
 

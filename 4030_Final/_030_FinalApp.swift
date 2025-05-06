@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct _030_FinalApp: App {
+    //@StateObject var scoreManager = ScoreManger()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                //.environmentObject(scoreManager)
         }
     }
 }

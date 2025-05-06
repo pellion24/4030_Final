@@ -8,11 +8,48 @@
 import SwiftUI
 
 struct SideMenu: View {
+    @Binding var isShowing: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            if isShowing {
+                Rectangle()
+                    .opacity(0.3)
+                    .ignoresSafeArea()
+                    .onTapGesture {
+                        isShowing.toggle()
+                    }
+                    
+                HStack{
+                    VStack(alignment: .leading, spacing: 32){
+                        SideMenuHeader()
+                        Spacer()
+                        //Links to my different pages
+                            NavigationLink(destination: Players()) {
+                                Text("Players")
+                            }
+                            NavigationLink(destination: Teams())
+                            {
+                                Text("Teams")
+                            }
+                            NavigationLink(destination:
+                                Locations())
+                            {
+                                Text("Locations")
+                            }
+                        //}
+                    }
+                    .padding()
+                    .frame(width: 270, alignment: .leading)
+                    .background(Color.white)
+                    
+                    Spacer()
+                }
+            }
+        }
     }
 }
 
 #Preview {
-    SideMenu()
+    SideMenu(isShowing: .constant(true))
 }
